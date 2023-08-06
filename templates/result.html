@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<style>
+		.back{
+		 background-image: url("{{ url_for('static', filename='image/B.webp') }}");
+		  background-repeat: no-repeat;
+		  background-attachment: fixed;
+		  background-size: 100% 100%;
+		}
+		center{
+		padding-top:10%;
+		}
+		a{
+		color:red;
+		}
+		</style>
+</head>
+<body class="back">
+
+	<header class="jumbotron" style="height: 100px;">
+		<div class="container">
+		<h2 style="text-align:center">Tweet Analysis Prediction</h2>
+
+	</div>
+	</header>
+	<center>
+
+	<div class="card" style="width:30%">
+	<p style="color:red;font-size:20;text-align: center;"><b>RESULT OF COVID-19 TWEET ANALYSIS</b></p>
+	<div class="results">
+
+
+
+	{% if prediction == 'Neutral' %}
+	<h2 style="color:blue;">Neutral</h2>
+
+	{% elif prediction == 'Extremely Negative' %}
+	<h2 style="color:red;">Extremely Negative</h2>
+
+	{% elif prediction == 'Extremely Positive' %}
+	<h2 style="color:green;">Extremely Positive</h2>
+
+	{% elif prediction == 'Positive' %}
+	<h2 style="color:greenyellow;">Positive</h2>
+
+	{% elif prediction == 'Negative' %}
+	<h2 style="color:pink;">Negative</h2>
+
+	{% endif %}
+    </div>
+    </center>
+
+	</div>
+<a href="{{ url_for('home')}}">Go back</a>
+
+</body>
+</html>
